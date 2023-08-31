@@ -41,5 +41,4 @@ You must have nodejs(v16.16.0), npm (8.18.0), docker (20.10.17) and docker-compo
     <li>F4  - Delete notes.</li>
 </ul>
 
-<blockquote><i>Unfortunately I couldn't get it 100% functional in time, but it was a great challenge and thank you very much for the opportunity.</i> </blockquote>
 # notes_app
