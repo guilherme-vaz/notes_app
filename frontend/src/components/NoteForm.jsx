@@ -1,9 +1,82 @@
 /* eslint-disable react/prop-types */
-export function NoteForm({ title, content, onSubmit, handleChange, note, buttonText }) {
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  useDisclosure,
+  Button,
+  Textarea,
+  FormControl,
+  useToast,
+  FormLabel,
+  Input,
+} from "@chakra-ui/react";
 
+export function NoteForm({
+  id,
+  title,
+  content,
+  onSubmit,
+  handleChange,
+  buttonText,
+  initialRef,
+  finalRef,
+  isOpen,
+  onClose,
+}) {
   return (
-    <div>
-      <form onSubmit={onSubmit}>
+    <>
+      <Modal
+        initialFocusRef={initialRef}
+        isOpen={isOpen}
+        finalFocusRef={finalRef}
+        onClose={onClose}
+      >
+        <ModalOverlay />
+
+        <ModalContent>
+          <ModalHeader>Criar nova nota</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody pb={6}>
+            <Input type={"hidden"} value={id}></Input>
+            <FormControl isRequired>
+              <FormLabel>Título</FormLabel>
+              <Input
+                ref={initialRef}
+                placeholder="Título da nota"
+                type="text"
+                name="title"
+                value={title}
+                onChange={handleChange}
+                defaultValue={title}
+              />
+            </FormControl>
+
+            <FormControl mt={4}>
+              <FormLabel>Conteúdo</FormLabel>
+              <Textarea
+                placeholder="Comece a escrever"
+                name="content"
+                value={content}
+                onChange={handleChange}
+                defaultValue={content}
+              />
+            </FormControl>
+          </ModalBody>
+
+          <ModalFooter>
+            <Button onCLick={onSubmit} colorScheme="blue" mr={3}>
+              {buttonText}
+            </Button>
+            <Button onClick={onClose}>Cancel</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+      {/* <form onSubmit={onSubmit}>
         <label htmlFor="title">Note title</label>
         <input
           value={note.title}
@@ -23,7 +96,7 @@ export function NoteForm({ title, content, onSubmit, handleChange, note, buttonT
         />
         <p></p>
         <button type="submit">{buttonText}</button>
-      </form>
-    </div>
+      </form> */}
+    </>
   );
 }
