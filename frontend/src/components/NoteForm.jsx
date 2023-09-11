@@ -22,7 +22,7 @@ export function NoteForm({
   content,
   onSubmit,
   handleChange,
-  buttonText,
+  formTitle,
   initialRef,
   finalRef,
   isOpen,
@@ -39,7 +39,7 @@ export function NoteForm({
         <ModalOverlay />
 
         <ModalContent>
-          <ModalHeader>Criar nova nota</ModalHeader>
+          <ModalHeader>{formTitle}</ModalHeader>
           <ModalCloseButton />
           <ModalBody pb={6}>
             <Input type={"hidden"} value={id}></Input>
@@ -70,7 +70,7 @@ export function NoteForm({
 
           <ModalFooter>
             <Button onCLick={onSubmit} colorScheme="blue" mr={3}>
-              {buttonText}
+               Salvar
             </Button>
             <Button onClick={onClose}>Cancel</Button>
           </ModalFooter>

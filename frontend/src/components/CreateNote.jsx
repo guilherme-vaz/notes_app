@@ -25,7 +25,7 @@ export function CreateNote() {
 
   return (
     <div>
-      <NoteForm title={note.title} content={note.content} handleChange={handleChange} onSubmit={addNote} buttonText={'Salvar'} />
+      <NoteForm title={note.title} content={note.content} handleChange={handleChange} onSubmit={addNote} formTitle={'Criar nova nota'} />
     </div>
   );
 }
