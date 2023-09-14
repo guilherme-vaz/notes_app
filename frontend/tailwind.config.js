@@ -5,7 +5,10 @@ export default {
   ],
   theme: {
     extend: {},
+    fontFamily: {
+      'Poppins': ['poppins', 'sans-serif'],
+
   },
   plugins: [],
 }
-
+}

@@ -27,6 +27,7 @@ export function NoteForm({
   finalRef,
   isOpen,
   onClose,
+  resetForm,
 }) {
   return (
     <>
@@ -46,7 +47,7 @@ export function NoteForm({
             <FormControl isRequired>
               <FormLabel>Título</FormLabel>
               <Input
-                ref={initialRef}
+                
                 placeholder="Título da nota"
                 type="text"
                 name="title"
@@ -63,13 +64,12 @@ export function NoteForm({
                 name="content"
                 value={content}
                 onChange={handleChange}
-                defaultValue={content}
               />
             </FormControl>
           </ModalBody>
 
           <ModalFooter>
-            <Button onCLick={onSubmit} colorScheme="blue" mr={3}>
+            <Button onClick={onSubmit} colorScheme="blue" mr={3}>
                Salvar
             </Button>
             <Button onClick={onClose}>Cancel</Button>

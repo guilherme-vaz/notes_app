@@ -1,8 +1,8 @@
-import "./App.css";
+// import "./App.css";
 import { useState, useEffect } from "react";
 import { API } from "./api";
-import { Note, CreateNote } from "./components";
-import { Grid, Container, Flex, Center } from "@chakra-ui/react";
+import { Note, Navbar } from "./components";
+
 
 function App() {
   const [notes, setNotes] = useState([]);
@@ -22,24 +22,23 @@ function App() {
   // console.log(notesSorted)
 
   return (
-    <div className="flex flex-col">
-      <h1>Minhas notas</h1>
-
-      <div>
-        {notes?.map((note) => {
-          return (
-            <Note
-              key={note.id}
-              title={note.title}
-              content={note.content}
-              id={note.id}
-            />
-          );
-        })}
+    <>
+    <Navbar />
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-3 gap-4 mb-12">
+          {notes?.map((note) => {
+            return (
+              <Note
+                key={note.id}
+                title={note.title}
+                content={note.content}
+                id={note.id}
+              />
+            );
+          })}
+        </div>
       </div>
-
-      <CreateNote />
-    </div>
+    </>
   );
 }
 

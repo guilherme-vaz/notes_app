@@ -2,17 +2,8 @@ import { API } from "../api";
 import { NoteForm } from "./NoteForm";
 import { useRef } from "react";
 import {
-  Heading,
-  Button,
-  Text,
   useToast,
   useDisclosure,
-  Textarea,
-  Card,
-  CardBody,
-  CardHeader,
-  CardFooter,
-  ButtonGroup,
 } from "@chakra-ui/react";
 import { Trash } from "@phosphor-icons/react";
 
@@ -49,21 +40,22 @@ export function Note({ id, title, content }) {
   };
 
   return (
-    <div className="flex flex-col justify-center px-6 py-2 rounded-md w-full bg-slate-600 mb-2">
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 bg-slate-800 rounded">
       <h3 className="font-sans text-xl font-semibold mt-4 mb-4 text-left text-white">
         {title}
       </h3>
 
       <textarea
+        readOnly
         value={content}
-        className="rounded-md resize-none mb-2 font-sans h-36 w-96 p-3"
+        className="rounded-md resize-none mb-2 font-sans h-36 w-80 p-3"
       />
 
       {/* BUTTONS */}
-      <div className="flex flex-row justify-end space-x-3 mt-4 mb-4">
+      <div className="flex flex-row justify-end space-x-3 mt-1 mb-4">
         <button
           onClick={onOpen}
-          className="rounded bg-orange-400 px-2 py-1 text-white"
+          className="rounded bg-orange-400 px-2 py-1 text-white font-semibold"
         >
           Editar
         </button>
